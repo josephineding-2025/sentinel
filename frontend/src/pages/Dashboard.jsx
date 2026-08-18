@@ -93,10 +93,11 @@ function StatCard({ icon, label, value, bg }) {
 }
 
 function ErrorBox({ message }) {
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
   return (
     <div className="rounded-2xl border border-coral-100 bg-coral-50 p-4 text-sm text-coral-700">
-      Couldn't reach the backend ({message}). Is it running at http://localhost:8000 and have you run
-      scripts/seed_db.py?
+      Couldn't reach the backend ({message}). Tried: {apiUrl} — check it's running and reachable, and that CORS
+      allows this origin.
     </div>
   );
 }
