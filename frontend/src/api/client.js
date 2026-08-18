@@ -1,4 +1,6 @@
-const BASE_URL = "http://localhost:8000";
+// Set VITE_API_URL in the hosting platform's env vars for production (e.g.
+// https://sentinel-api.onrender.com). Falls back to localhost for `npm run dev`.
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE_URL}${path}`, {

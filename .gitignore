@@ -2,9 +2,14 @@ __pycache__/
 *.pyc
 .venv/
 venv/
-*.db
 .env
 node_modules/
 dist/
 .DS_Store
-data/generated/
+
+# data/generated/ is intentionally NOT ignored: students.json, conversations.json,
+# and wellbeing.db are the pre-baked synthetic dataset (small, ~1MB total) and
+# are committed on purpose so a deployed server has data without needing to
+# run the ~80-minute scripts/seed_db.py regeneration at deploy time. If you
+# regenerate locally and only want to commit an intentional refresh, review
+# `git diff --stat data/generated/` before committing.

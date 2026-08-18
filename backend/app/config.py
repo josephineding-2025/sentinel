@@ -15,6 +15,13 @@ DATABASE_URL = os.getenv("DATABASE_URL") or f"sqlite:///{DATA_DIR / 'wellbeing.d
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")  # optional: on-demand profile explanation only
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")  # free tier, powers the live Student Chat demo
 
+# Comma-separated list of allowed frontend origins for CORS, e.g.
+# "https://sentinel.vercel.app,https://sentinel-git-main.vercel.app". Always
+# includes localhost:5173 so `npm run dev` keeps working alongside a deployed
+# frontend.
+_extra_origins = [o.strip() for o in os.getenv("FRONTEND_ORIGINS", "").split(",") if o.strip()]
+CORS_ORIGINS = ["http://localhost:5173", *_extra_origins]
+
 # Risk state thresholds — tuned against scripts/evaluate.py output on the
 # synthetic dataset with the REAL HF models + blended conv_distress (mean +
 # worst-message): peak risk_score for stable/volatile_but_ok students tops

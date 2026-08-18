@@ -1,0 +1,10 @@
+# Extra dependencies needed ONLY to regenerate the bulk synthetic dataset
+# locally (scripts/generate_students.py, generate_conversations.py,
+# seed_db.py). Never installed on the deployed server -- see requirements.txt.
+#
+#   pip install -r requirements.txt -r requirements-datagen.txt
+#
+# Version-ranged rather than pinned: torch's exact-patch releases lag behind
+# new Python releases, so a tight pin breaks on whatever Python you're on.
+transformers>=4.44,<5
+torch>=2.6
