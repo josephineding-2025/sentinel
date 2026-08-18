@@ -2,7 +2,7 @@
 
 **An AI-powered early warning system that helps school counsellors notice when a student may need support — before it becomes a crisis, not after.**
 
-🔗 **Live demo:** [sentinel-khaki-chi.vercel.app](https://sentinel-khaki-chi.vercel.app/) *(backend is free-tier hosted and may take ~30-60s to wake up on first load)*
+🔗 **Live demo:** [sentinel-khaki-chi.vercel.app](https://sentinel-khaki-chi.vercel.app/) *(backend may take ~30-60s to wake up on first load)*
 
 ---
 
@@ -27,7 +27,7 @@ Try **Student Chat** in the live demo to see a message get classified and flagge
 
 - **Backend** — FastAPI + SQLAlchemy (SQLite)
 - **Frontend** — React + Vite + Tailwind CSS
-- **AI** — Google Gemini (live chat + explanations, free tier) · Hugging Face models classify the offline demo dataset
+- **AI** — Google Gemini (live chat + explanations) · Hugging Face models classify the offline demo dataset
 - **Hosting** — Render (API) + Vercel (frontend)
 
 ## Run it locally
@@ -55,11 +55,6 @@ npm run dev
 
 Open **http://localhost:5173** — the dashboard, student profiles, and review queue all work immediately using the sample dataset (60 fictional students) already included in the repo.
 
-### Enabling the live chat demo (optional, free)
-Everything above works with no API key. To also try the live **Student Chat** page:
-1. Get a free key at [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
-2. Add it to `.env` as `GEMINI_API_KEY=...`
-3. Restart the backend
 
 ## A note on data
 
