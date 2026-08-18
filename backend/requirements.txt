@@ -1,0 +1,20 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+sqlalchemy==2.0.35
+pydantic>=2.9  # google-genai pulls in a newer 2.x; a tight pin here just fights it
+python-dotenv==1.0.1
+
+# Open-source NLP for bulk/offline synthetic-data classification (see
+# scripts/seed_db.py, services/context_classifier.py, services/emotion.py).
+# Version-ranged rather than pinned: torch's exact-patch releases lag behind
+# new Python releases, so a tight pin breaks on whatever Python you're on.
+transformers>=4.44,<5
+torch>=2.6
+
+# Gemini API (free tier) for the live demo chat (see services/gemini_client.py,
+# api/chat.py). Needs GEMINI_API_KEY in .env.
+google-genai>=1.0
+
+# Claude API -- optional, only for the on-demand profile explanation
+# (see services/claude_client.py). Needs ANTHROPIC_API_KEY in .env.
+anthropic>=0.68
